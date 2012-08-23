@@ -37,6 +37,56 @@ body
       height 10px
       background rgba(230, 230, 230, .5)
 
+.new-row
+  padding 30px
+
+.col-model
+  height 30px
+  width 90px
+  background: rgba(255, 255, 255, .5)
+  transform(rotateX(20deg))
+  position relative
+  float left
+  margin-right 20px
+
+  &:before,
+  &:after
+    position absolute
+    content ''
+    height 30px
+
+  &.col-4-4-4
+    &:before,
+    &:after
+      width 30px
+    &:before
+      background rgba(200, 200, 200, .5)
+    &:after
+      right 0
+      background rgba(100, 100, 100, .5)
+
+  &.col-6-6
+    &:before
+      width 45px
+      background rgba(200, 200, 200, .5)
+
+  &.col-4-8
+    &:before
+      width 60px
+      right 0
+      background rgba(200, 200, 200, .5)
+
+  &.col-8-4
+    &:before
+      width 60px
+      background rgba(200, 200, 200, .5)
+
+  &.col-12
+    &:after
+      width 90px
+      background rgba(200, 200, 200, .5)
+
+
 
 
 
