@@ -4,6 +4,7 @@ define ['LevelView', 'tmpl!rowDiv'], (LevelView, rowDivTmpl) ->
       'click .row-div': 'addRow'
     initialize: ->
       @layout = [
+          id: '123abc'
           cells: [
             width: 4
             widget:
@@ -14,6 +15,7 @@ define ['LevelView', 'tmpl!rowDiv'], (LevelView, rowDivTmpl) ->
               title: 'LMS Training',
           ]
         ,
+          id: '456def'
           title: 'Missionary Prep'
           cells: [
               width: 4
@@ -29,6 +31,7 @@ define ['LevelView', 'tmpl!rowDiv'], (LevelView, rowDivTmpl) ->
                 title: 'Mormonorg'
           ]
       ]
+      Backbone.Events.on('chooseNewLevelDividers', @mkNewLevel, this)
     render: ->
       frag = document.createDocumentFragment()
       div = rowDivTmpl()
@@ -41,8 +44,17 @@ define ['LevelView', 'tmpl!rowDiv'], (LevelView, rowDivTmpl) ->
       @$el.html(frag)
       this
     addRow: (evt) ->
+      genUID = ->
+        ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).substr(-4)
+
       indx = @$('.row-div').index($(evt.currentTarget))
-      @layout.splice(indx, 0, {})
+      @layout.splice(indx, 0, { id: genUID() })
+      @render()
+    mkNewLevel: (widths, newRowId) ->
+      emptyNewLevel = _(@layout).find (level) ->
+        level.id is newRowId
+      emptyNewLevel.cells = ({ width: w } for w in widths)
+      console.log @layout
       @render()
 
 

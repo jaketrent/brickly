@@ -15,6 +15,14 @@
 
       LevelView.prototype.className = 'row-fluid level';
 
+      LevelView.prototype.events = {
+        'click .col-model': 'mkLevelDividers'
+      };
+
+      LevelView.prototype.initialize = function() {
+        return this.id = this.options.id;
+      };
+
       LevelView.prototype.render = function() {
         var frag;
         if (this.options.cells != null) {
@@ -29,6 +37,15 @@
           this.$el.html(newLevelTmpl());
         }
         return this;
+      };
+
+      LevelView.prototype.mkLevelDividers = function(evt) {
+        var $target, widths;
+        $target = $(evt.currentTarget);
+        widths = _($target.attr('class').match('colsize-(.*)?')[1].split('-')).map(function(obj) {
+          return parseInt(obj);
+        });
+        return Backbone.Events.trigger('chooseNewLevelDividers', widths, this.id);
       };
 
       return LevelView;

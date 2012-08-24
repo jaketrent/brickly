@@ -18,8 +18,9 @@
       };
 
       LayoutManager.prototype.initialize = function() {
-        return this.layout = [
+        this.layout = [
           {
+            id: '123abc',
             cells: [
               {
                 width: 4,
@@ -34,6 +35,7 @@
               }
             ]
           }, {
+            id: '456def',
             title: 'Missionary Prep',
             cells: [
               {
@@ -55,6 +57,7 @@
             ]
           }
         ];
+        return Backbone.Events.on('chooseNewLevelDividers', this.mkNewLevel, this);
       };
 
       LayoutManager.prototype.render = function() {
@@ -73,9 +76,34 @@
       };
 
       LayoutManager.prototype.addRow = function(evt) {
-        var indx;
+        var genUID, indx;
+        genUID = function() {
+          return ("0000" + (Math.random() * Math.pow(36, 4) << 0).toString(36)).substr(-4);
+        };
         indx = this.$('.row-div').index($(evt.currentTarget));
-        this.layout.splice(indx, 0, {});
+        this.layout.splice(indx, 0, {
+          id: genUID()
+        });
+        return this.render();
+      };
+
+      LayoutManager.prototype.mkNewLevel = function(widths, newRowId) {
+        var emptyNewLevel, w;
+        emptyNewLevel = _(this.layout).find(function(level) {
+          return level.id === newRowId;
+        });
+        emptyNewLevel.cells = (function() {
+          var _i, _len, _results;
+          _results = [];
+          for (_i = 0, _len = widths.length; _i < _len; _i++) {
+            w = widths[_i];
+            _results.push({
+              width: w
+            });
+          }
+          return _results;
+        })();
+        console.log(this.layout);
         return this.render();
       };
 

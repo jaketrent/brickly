@@ -119,31 +119,31 @@ body {
   content: '';
   height: 40px;
 }
-.col-model.col-4-4-4:before,
-.col-model.col-4-4-4:after {
+.col-model.colsize-4-4-4:before,
+.col-model.colsize-4-4-4:after {
   width: 40px;
 }
-.col-model.col-4-4-4:before {
+.col-model.colsize-4-4-4:before {
   background: rgba(200,200,200,0.5);
 }
-.col-model.col-4-4-4:after {
+.col-model.colsize-4-4-4:after {
   right: 0;
   background: rgba(100,100,100,0.5);
 }
-.col-model.col-6-6:before {
+.col-model.colsize-6-6:before {
   width: 60px;
   background: rgba(200,200,200,0.5);
 }
-.col-model.col-4-8:before {
-  width: 60px;
+.col-model.colsize-4-8:before {
+  width: 40px;
+  background: rgba(200,200,200,0.5);
+}
+.col-model.colsize-8-4:before {
+  width: 40px;
   right: 0;
   background: rgba(200,200,200,0.5);
 }
-.col-model.col-8-4:before {
-  width: 60px;
-  background: rgba(200,200,200,0.5);
-}
-.col-model.col-12:after {
+.col-model.colsize-12:after {
   width: 120px;
   background: rgba(200,200,200,0.5);
 }
