@@ -19,10 +19,6 @@
         'click .col-model': 'mkLevelDividers'
       };
 
-      LevelView.prototype.initialize = function() {
-        return this.id = this.options.id;
-      };
-
       LevelView.prototype.render = function() {
         var frag;
         if (this.options.cells != null) {
@@ -45,7 +41,7 @@
         widths = _($target.attr('class').match('colsize-(.*)?')[1].split('-')).map(function(obj) {
           return parseInt(obj);
         });
-        return Backbone.Events.trigger('chooseNewLevelDividers', widths, this.id);
+        return Backbone.Events.trigger('chooseNewLevelDividers', widths, this.options.id);
       };
 
       return LevelView;

@@ -103,7 +103,6 @@
           }
           return _results;
         })();
-        console.log(this.layout);
         return this.render();
       };
 

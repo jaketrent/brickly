@@ -46,7 +46,6 @@ define ['LevelView', 'tmpl!rowDiv'], (LevelView, rowDivTmpl) ->
     addRow: (evt) ->
       genUID = ->
         ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).substr(-4)
-
       indx = @$('.row-div').index($(evt.currentTarget))
       @layout.splice(indx, 0, { id: genUID() })
       @render()
@@ -54,7 +53,6 @@ define ['LevelView', 'tmpl!rowDiv'], (LevelView, rowDivTmpl) ->
       emptyNewLevel = _(@layout).find (level) ->
         level.id is newRowId
       emptyNewLevel.cells = ({ width: w } for w in widths)
-      console.log @layout
       @render()
 
 

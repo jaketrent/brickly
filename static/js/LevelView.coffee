@@ -3,8 +3,6 @@ define ['CellView', 'tmpl!newLevel'], (CellView, newLevelTmpl) ->
     className: 'row-fluid level'
     events:
       'click .col-model': 'mkLevelDividers'
-    initialize: ->
-      @id = @options.id
     render: ->
       if @options.cells?
         frag = document.createDocumentFragment()
@@ -20,4 +18,4 @@ define ['CellView', 'tmpl!newLevel'], (CellView, newLevelTmpl) ->
       $target = $(evt.currentTarget)
       widths = _($target.attr('class').match('colsize-(.*)?')[1].split('-')).map (obj) ->
         parseInt(obj)
-      Backbone.Events.trigger('chooseNewLevelDividers', widths, @id)
+      Backbone.Events.trigger('chooseNewLevelDividers', widths, @options.id)
