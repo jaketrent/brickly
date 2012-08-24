@@ -1,1 +1,9 @@
-{{ widget.title }}
+{{#if widget}}
+  <div class="widget-title">
+    {{ widget.title }}
+  </div>
+{{ else }}
+  <div class="widget-title empty">
+    +
+  </div>
+{{/if}}
