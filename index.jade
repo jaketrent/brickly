@@ -1,39 +1,50 @@
 !!! 5
 html
   head
-    meta()
+    title='Brickly - Layout Manager Prototype'
     link(rel='stylesheet', href='static/css/bootstrap-responsive.min.css')
     link(rel='stylesheet', href='static/css/style.css')
+    script(src='static/js/vendor/require-jquery-2.0.2.js', data-main='static/js/main')
   body
     .container
-      .row-fluid
+      .row-div
+        .row-div-bar
+        .bubble.add='+'
+      .row-fluid.level
         .span4
           |4
         .span8
           |8
       .row-div
         .row-div-bar
-      .row-fluid
+        .bubble.add='+'
+      .row-fluid.level
         .span6
           |6
         .span6
           |6
       .row-div
         .row-div-bar
-      .row-fluid
+        .bubble.add='+'
+      .row-fluid.level
         .span6
           |6
         .span6
           |6
       .row-div
         .row-div-bar
-      .row-fluid
+        .bubble.add='+'
+      .row-fluid.level
         .span12.new-row
           .col-model.col-4-4-4
           .col-model.col-6-6
           .col-model.col-4-8
           .col-model.col-8-4
           .col-model.col-12
+      .row-div
+        .row-div-bar
+        .bubble.add='+'
+
 
 
 

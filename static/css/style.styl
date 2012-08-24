@@ -17,7 +17,47 @@ body
 .container
   margin 0 auto
   max-width 960px
-  border 1px solid #fff
+
+.bubble
+  opacity 0
+  transition(all .3s ease-in)
+  position absolute
+  right -60px
+  top -15px
+  height 35px
+  width 35px
+  line-height 30px
+  text-align center
+  font-size 30px
+  text-shadow 1px 1px 2px rgba(0,0,0,.5)
+  color #fff
+  border 4px solid #707070
+  border-radius 35px
+  background: #999999
+  z-index 2
+  cursor: pointer
+
+  &:before
+    content ''
+    position absolute
+    top 9px
+    left -14px
+    height 0
+    width 0
+    z-index 1
+    border-top 8px solid transparent
+    border-right 14px solid #707070
+    border-bottom 8px solid transparent
+
+.level
+  position relative
+  .rm
+    top 50%
+
+  &:hover
+    .rm
+      opacity 1
+
 
 .row-div
   height 10px
@@ -36,15 +76,17 @@ body
       top 0
       height 10px
       background rgba(230, 230, 230, .5)
+    .add
+      opacity 1
 
 .new-row
+  overflow auto
   padding 30px
 
 .col-model
-  height 30px
-  width 90px
+  height 40px
+  width 120px
   background: rgba(255, 255, 255, .5)
-  transform(rotateX(20deg))
   position relative
   float left
   margin 4px 24px 4px 4px
@@ -59,12 +101,12 @@ body
   &:after
     position absolute
     content ''
-    height 30px
+    height 40px
 
   &.col-4-4-4
     &:before,
     &:after
-      width 30px
+      width 40px
     &:before
       background rgba(200, 200, 200, .5)
     &:after
@@ -73,7 +115,7 @@ body
 
   &.col-6-6
     &:before
-      width 45px
+      width 60px
       background rgba(200, 200, 200, .5)
 
   &.col-4-8
@@ -89,7 +131,7 @@ body
 
   &.col-12
     &:after
-      width 90px
+      width 120px
       background rgba(200, 200, 200, .5)
 
 
