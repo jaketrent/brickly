@@ -7,6 +7,33 @@ body {
   height: 100%;
   background-image: url("../img/dark_wall.png");
 }
+#bg {
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  height: 120%;
+  width: 120%;
+  z-index: -1;
+  pointer-events: none;
+  background-image: -webkit-radial-gradient(50% 50%, ellipse closest-side, rgba(255,255,255,0.2) 1%, rgba(67,68,72,0.45) 100%);
+  background-image: -moz-radial-gradient(50% 50%, ellipse closest-side, rgba(255,255,255,0.2) 1%, rgba(67,68,72,0.45) 100%);
+}
+#bg .lighten-top {
+  position: fixed;
+  width: 120%;
+  height: 50%;
+  z-index: 10;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.64)), to(rgba(255,255,255,0)));
+  background-image: -moz-linear-gradient(rgba(255,255,255,0.64), rgba(255,255,255,0));
+  background-image: -o-linear-gradient(rgba(255,255,255,0.64), rgba(255,255,255,0));
+  background-image: -ms-linear-gradient(rgba(255,255,255,0.64), rgba(255,255,255,0));
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255,255,255,0.64)), color-stop(1, rgba(255,255,255,0)));
+  background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.64) 0%, rgba(255,255,255,0) 100%);
+  background-image: -moz-linear-gradient(top, rgba(255,255,255,0.64) 0%, rgba(255,255,255,0) 100%);
+  background-image: -o-linear-gradient(top, rgba(255,255,255,0.64) 0%, rgba(255,255,255,0) 100%);
+  background-image: -ms-linear-gradient(top, rgba(255,255,255,0.64) 0%, rgba(255,255,255,0) 100%);
+  background-image: linear-gradient(top, rgba(255,255,255,0.64) 0%, rgba(255,255,255,0) 100%);
+}
 .container {
   margin: 0 auto;
   max-width: 960px;

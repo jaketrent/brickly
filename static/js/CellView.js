@@ -13,11 +13,17 @@
         return CellView.__super__.constructor.apply(this, arguments);
       }
 
-      CellView.prototype.tagName = 'div';
+      CellView.prototype.events = {
+        'click .widget-title.empty': 'addWidget'
+      };
 
       CellView.prototype.render = function() {
         this.$el.addClass("span" + this.options.width).html(cellViewTmpl(this.options));
         return this;
+      };
+
+      CellView.prototype.addWidget = function() {
+        return alert('adding widget');
       };
 
       return CellView;
